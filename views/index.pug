@@ -1,0 +1,28 @@
+extends layout
+
+block css
+	link(rel='stylesheet', href='stylesheets/mainrtc.css')
+
+block content
+	div(id='canv')
+		div(style='text-align:center')
+			h2 Realtime communication with WebRTC
+		
+		section.make-center
+			input#room-id(type='text', value='abcdef', autocorrect='off', autocapitalize='off', size='20')
+
+			button#open-room Open Room
+			button#join-room Join Room
+			button#open-or-join-room Auto Open Or Join Room
+			#room-urls(style='text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;')
+
+			#videos-container
+
+block page-js
+	script(src='/js/RTCMultiConnection.min.js')
+	script(src='/js/dev/adapter.js')
+	script(src='/vendor/socket.io.js')
+	//- custom layout for HTML5 audio/video elements
+	link(rel='stylesheet', href='/stylesheets/dev/getHTMLMediaElement.css')
+	script(src='/js/dev/getHTMLMediaElement.js')
+	script(src='/js/RTCMulti_code.js')
